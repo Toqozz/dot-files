@@ -1,0 +1,102 @@
+#! /bin/sh
+#
+# Example panel for LemonBoy's bar
+
+. panel_colors
+
+num_mon=$(bspc query -M | wc -l)
+while read -r line ; do
+	case $line in
+		S*)
+			# clock output
+			sys_infos="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} %{B-}%{F-}"
+			;;
+		T*)
+			# xtitle output
+                        if [ "$urgent" = true ] ; then
+                            title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_URGENT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_STATUS_FG}${line#?} %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
+                        else
+                            title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_BACKGROUND}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_STATUS_FG}${line#?} %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
+                        fi
+			;;
+		A*)
+			# sound?
+			audio="%{F$COLOR_STATUS_BG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_STATUS_BG}  %{F$COLOR_STATUS_FG}${line#?}%{B-}%{F-}"
+			;;
+		G*)
+			# card temp
+			gpu="%{F$COLOR_STATUS_FG}%{B$COLOR_ALT2_FG}${line#?} %{B-}%{F-}"
+			;;
+		C*)
+			# cpu temp
+			cpu="%{F$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG}  %{F$COLOR_STATUS_FG}${line#?} %{B-}%{F-}"
+			;;
+        W*)
+			# bspwm internal state
+            wm_infos=""
+            urgent=false
+            IFS=':'
+			set -- ${line#?}
+			while [ $# -gt 0 ] ; do
+				item=$1
+				name=${item#?}
+				case $item in
+					M*)
+						# active monitor
+						if [ $num_mon -gt 1 ] ; then
+                            if [ $name = 'HDMI-0' ] ; then
+							    wm_infos="$wm_infos%{B$COLOR_OCCUPIED_BG} %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}%{F$COLOR_ACTIVE_MONITOR_BG}%{B$COLOR_ALT_FG}%{F$COLOR_ACTIVE_MONITOR_FG}%{T3}%{T1}%{B-}%{F-}"
+                            else
+							    wm_infos="$wm_infos%{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}%{F$COLOR_ACTIVE_MONITOR_BG}%{B$COLOR_ALT_FG}%{F$COLOR_ACTIVE_MONITOR_FG}%{T3}%{T1}%{B-}%{F-}"
+                            fi
+						fi
+						;;
+                    m*)
+                        # inactive monitor
+                        if [ $num_mon -gt 1 ] ; then
+                            if [ $name = 'HDMI-0' ] ; then
+							    wm_infos="$wm_infos%{B$COLOR_OCCUPIED_BG} %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}%{F$COLOR_ACTIVE_MONITOR_BG}%{B$COLOR_ALT_FG}%{T3}%{F$COLOR_ALT4_FG}%{T1}%{B-}%{F-}"
+                            else
+							    wm_infos="$wm_infos%{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}%{F$COLOR_ACTIVE_MONITOR_BG}%{B$COLOR_ALT_FG}%{T3}%{F$COLOR_ALT4_FG}%{T1}%{B-}%{F-}"
+                            fi
+                        fi
+                        ;;
+					O*)
+						# focused occupied desktop
+						wm_infos="${wm_infos}%{F$COLOR_ALT_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_FOCUSED_OCCUPIED_BG} ${name}%{F$COLOR_BACKGROUND}%{B$COLOR_ALT_FG}%{T3}%{T1}%{B-}%{F-}"
+						;;
+					F*)
+						# focused free desktop
+						wm_infos="${wm_infos}%{F$COLOR_ALT_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG} ${name}%{F$COLOR_BACKGROUND}%{B$COLOR_ALT_FG}%{T3}%{T1}%{B-}%{F-}"
+						;;
+					U*)
+						# focused urgent desktop
+						wm_infos="${wm_infos}%{F$COLOR_ALT_FG}%{B$COLOR_FOCUSED_URGENT_BG}%{T3}%{T1}%{F$COLOR_FOCUSED_URGENT_FG}%{B$COLOR_FOCUSED_URGENT_BG} ${name}%{F$COLOR_FOCUSED_URGENT_BG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{B-}%{F-}"
+						urgent=true
+                                                title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_URGENT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_STATUS_FG}`xtitle -f '%s'` %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
+                                                ;;
+					o*)
+						# occupied desktop
+						wm_infos="${wm_infos}%{F$COLOR_ALT_FG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{F$COLOR_OCCUPIED_FG}%{B$COLOR_OCCUPIED_BG} ${name}%{F$COLOR_ALT_FG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{B-}%{F-}"
+						;;
+					f*)
+						# free desktop
+						wm_infos="${wm_infos}%{F$COLOR_ALT_FG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{F$COLOR_FREE_FG}%{B$COLOR_FREE_BG} ${name}%{F$COLOR_ALT_FG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{B-}%{F-}"
+						;;
+					u*)
+						# urgent desktop
+						wm_infos="${wm_infos}%{F$COLOR_ALT_FG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{F$COLOR_URGENT_FG}%{B$COLOR_OCCUPIED_BG} ${name}%{F$COLOR_ALT_FG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{B-}%{F-}"
+                        urgent=true
+                        title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_URGENT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_STATUS_FG}`xtitle -f '%s'` %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
+                        ;;
+					#L*)
+					#	# layout
+					#	wm_infos="$wm_infos  %{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG} ${name} %{B-}%{F-}"
+					#	;;
+				esac
+				shift
+			done
+			;;
+	esac
+	printf "%s\n" "%{l}${wm_infos}${title}%{r}${not} ${cpu}${gpu}${music}${audio}${sys_infos}"
+done

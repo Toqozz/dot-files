@@ -1,0 +1,115 @@
+#
+# bspwm hotkeys
+#
+
+super + alt + Escape
+    bspc quit
+
+super + comma
+    bspc window -c
+
+super + y
+    bspc desktop -l next
+
+super + x
+    bspc desktop -B
+
+super + {o,u}
+    bspc window -t {floating,fullscreen}
+
+super + Tab
+    bspc desktop -f last
+
+super + minus
+    bspc window -s last
+
+super + {i,d}
+    bspc control --record-history off; \
+    bspc window {older,newer} -f; \
+    bspc control --record-history on
+
+super + f
+    bspc window -w last.manual
+
+super + m
+    bspc desktop HDMI-0:focused --swap DP-1:focused; \
+    bspc monitor --focus last
+
+super + {_,shift + }{h,j,k,l}
+    bspc window -{f,s} {left,down,up,right}
+
+super + {_,shift + }c
+    bspc window -f {next,prev}
+
+super + {w,v}
+    bspc desktop -C {backward,forward}
+
+super + bracket{left,right}
+    bspc desktop -f {prev,next}
+
+super + ctrl + {h,j,k,l}
+    bspc window -p {left,down,up,right}
+
+super + ctrl + {_,shift + }space
+    bspc {window -p cancel,desktop -c}
+
+super + alt + {h,j,k,l}
+    bspc window -e {left -10,down +10,up -10,right +10}
+
+super + alt + shift + {h,j,k,l}
+    bspc window -e {right -10,up +10,down -10,left +10}
+
+super + ctrl + {1-9}
+    bspc window -r 0.{1-9}
+
+super + {_,shift + }{1-9,0,apostrophe,period}
+    bspc {desktop -f,window -d} '^{1-9,10,5,6}'
+
+~button1
+    bspc pointer -g focus
+
+super + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
+
+super + !button{1-3}
+    bspc pointer -t %i %i
+
+super + @button{1-3}
+    bspc pointer -u
+
+#
+# wm independent hotkeys
+#
+
+super + Return
+	termite
+
+super + {_,shift + }space
+    dmenu_run -f -i -dim 0.5 -h 17 -p 'run' -fn 'tewi' -w 2560 -y 712.5 -nb '#11151b' -nf '#b1b3b9' -sb '#2e313b'
+	#rofi -show {run,ssh} 
+
+super + grave
+        teiler	
+
+super + {Left,Right,Down,Up}
+        mpc {prev,next,pause,play}
+
+super + {KP_Add, KP_Subtract}
+        mpc volume {+3,-3}
+
+super + backslash
+        ~/git/snippy.sh
+
+super + alt + Return
+        blank
+
+super + alt + space
+        ~/code/notification/scripts/url-open.sh
+
+super + alt + BackSpace
+        ~/code/notification/scripts/close-recent.sh
+
+# make sxhkd reload its configuration files:
+
+super + Escape
+	pkill -USR1 -x sxhkd

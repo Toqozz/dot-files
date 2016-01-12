@@ -1,0 +1,47 @@
+urxvt.foreground:   #E8DFD6
+urxvt.background:   #042329
+! #1b1e2b
+urxvt.cursorColor:  #00ff18
+urxvt.color0:       #1D2A36
+urxvt.color8:       #697b7f
+urxvt.color1:       #2e313b
+urxvt.color9:       #ff7895
+urxvt.color2:       #1d4847
+urxvt.color10:      #97ffd9
+urxvt.color3:       #2e4847
+urxvt.color11:      #fffeda
+urxvt.color4:       #213b4b
+urxvt.color12:      #b1aff3
+urxvt.color5:       #2e3e3c
+urxvt.color13:      #ffc397
+urxvt.color6:       #23464d
+urxvt.color14:      #baf0ff
+urxvt.color7:       #697b7f
+urxvt.color15:      #c7c7d2
+
+rofi.modi:          run,ssh
+rofi.opacity:       100
+rofi.width:         1902
+rofi.columns:       6
+rofi.lines:         1
+rofi.font:          tewi 9
+rofi.fg:            #c7c7d2
+rofi.bg:            #11151b
+rofi.color-enabled: true
+! State:            'bg',   'fg',   'bgalt','hlbg', 'hlfg'
+rofi.color-normal:  #11151b,#b1b3b9,#11151b,#11151b,#c7c7d2
+rofi.color-urgent:  #11151b,#b1b3b9,#11151b,#11151b,#c7c7d2
+rofi.color-active:  #11151b,#b1b3b9,#11151b,#11151b,#c7c7d2
+rofi.color-window:  #11151b,#11151b
+rofi.bw:            0
+rofi.location:      7
+rofi.padding:       2
+rofi.yoffset:       -30
+rofi.xoffset:       7
+rofi.fixed-num-lines:   false
+rofi.terminal:          termite
+rofi.auto-select:       true
+rofi.levenshtein-sort:  true
+rofi.hide-scrollbar:    true
+
+Xft.dpi:           81x80

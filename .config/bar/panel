@@ -1,0 +1,29 @@
+! /bin/bash
+
+. panel_colors
+
+if [ $(pgrep -cx panel) -gt 1 ] ; then
+	printf "%s\n" "The panel is already running." >&2
+	exit 1
+fi
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+bspc control --subscribe > "$PANEL_FIFO" &
+xtitle -sf 'T%s' > "$PANEL_FIFO" &
+while true; do clock -f "S%{F$COLOR_ALT_FG}%{T3}%{T1}%{B$COLOR_ALT_FG}%{F$COLOR_ICON_FG}%{T2}  %{T1}%{F$COLOR_STATUS_FG}%A %{F$COLOR_BACKGROUND}%{T3}%{T1}%{F$COLOR_STATUS_FG} %d|%m %{F$COLOR_BACKGROUND}%{T3}%{T1}%{F$COLOR_STATUS_FG} $(~/code/lowercase.sh `clock -f %H`)/%M" | sed -e 's/day/'%{F$COLOR_STATUS_FG}'day'%{F$COLOR_STATUS_FG}'/' > "$PANEL_FIFO"; sleep 3; done &
+while true; do pactl list sinks | sed -n '10 p' | awk -F" / " '{ print $2 }' | sed -e 's/ //' -e 's/^/A/' > "$PANEL_FIFO"; sleep 3; done &
+while true; do sensors | awk -F"  +" '/+/ { print $2 }' | sed -n '4 p' | sed -e 's/C//' -e 's/\+/C/' -e 's/\.0//' > "$PANEL_FIFO"; sleep 3; done &
+while true; do nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader | sed -e 's/^/G/' -e 's/$/°/' > "$PANEL_FIFO"; sleep 3; done &
+#while true; do S=3; F=/sys/class/net/enp3s0/statistics/rx_bytes; X=`cat $F`; sleep $S; Y=`cat $F`; BPS="$(((Y-X)/S))"; echo | expr $BPS / 1024 | sed -e 's/^/D/' > "$PANEL_FIFO"; done &
+#while true; do S=3; F=/sys/class/net/enp3s0/statistics/tx_bytes; X=`cat $F`; sleep $S; Y=`cat $F`; BPS="$(((Y-X)/S))"; echo | expr $BPS / 1024 | sed -e 's/^/U/' > "$PANEL_FIFO"; done &
+#while true; do mpc | head -1 | sed -e 's/^/M/' > "$PANEL_FIFO"; sleep 3; done &
+
+cat "$PANEL_FIFO" | panel_bar | lemonbar -b -g 2546x17+7+7 -f "tewi:size=11" -f "siji:size=11" -f "Fira Mono for Powerline:size=16" -o -6 -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+
+wait
+#⌜⌟
+# 

@@ -1,0 +1,62 @@
+- cmd: function fish_user_bindings\nbind \\t forward-word\nbind \\cu complete\nend
+  when: 1440042028
+- cmd: function 1024\nxrandr --size 1280x1024\nand pkill compton $argv\n\nend
+  when: 1440586454
+- cmd: function 1080\nxrandr --size 1920x1080\nand compton $argv\n\nend
+  when: 1440674118
+- cmd: function 1024\nxrandr --size 1280x1024\nand pkill compton $argv\nend
+  when: 1441362907
+- cmd: function compton\ncommand compton --config ~/.config/compton/compton.conf -b $argv\n\nend
+  when: 1441363081
+- cmd: function fish_user_key_bindings\n     fish_vi_mode\nend
+  when: 1443058725
+- cmd: function fish_user_key_bindings\nfish_vi_mode\nend
+  when: 1443058740
+- cmd: function fish_user_key_bindings\nfish_vi_mode\nbind -M insert \\t accpet-autosuggestion\nbind \\t accept-autosuggestion\nbind \\cl complete\nbind -M insert \\cl complete\nend
+  when: 1443058887
+- cmd: function fish_user_key_bindings\nfish_vi_mode\nbind -M insert \\t accept-autosuggestion\nbind -M insert \\cl complete\nbind \\t accept-autosuggestion\nbind \\cl complete\nend
+  when: 1443058961
+- cmd: function stream\nlivestreamer twitch.tv/$argv best --player "mpv --cache 2048" --hls-segment-threads 3\nend
+  when: 1443181156
+- cmd: function stream\nlivestreamer twitch.tv/$argv best --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443181235
+- cmd: function stream\nlivestreamer twitch.tv/$argv high --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443181680
+- cmd: function stream\nlivestreamer twitch.tv/$argv $argv --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443184535
+- cmd: function stream\nlivestreamer twitch.tv/$argv1 $argv2 --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443184685
+- cmd: function stream\nlivestreamer twitch.tv/$argv --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443184703
+- cmd: function stream\nlivestreamer twitch.tv/$argv $argb --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443185439
+- cmd: function stream\nlivestreamer "twitch.tv/$argv $argb" --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443185475
+- cmd: function stream\nlivestreamer "twitch.tv/$argv" $argb --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443185636
+- cmd: function stream\nlivestreamer "twitch.tv/$argv" "$argb" --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443185655
+- cmd: function stream\nlivestreamer "twitch.tv/$argv" --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443185907
+- cmd: function stream\nlivestreamer "twitch.tv/$argv" "$argw" --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443185985
+- cmd: function stream\nlivestreamer "twitch.tv/$argv $argw --player "mpv --cache 1024" --hls-segment-threads 3"\nend
+  when: 1443186348
+- cmd: function stream\nlivestreamer "twitch.tv/$argv $argw" --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443186384
+- cmd: function stream\nlivestreamer "twitch.tv/$argv" "$argw" --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1443186425
+- cmd: function stream\nlivestreamer twitch.tv/$argv best --player "mpv --cache 1024" --hls-segment-threads 3\nend
+  when: 1444039511
+- cmd: function fish_vi_mode\n# Set the __fish_vi_mode variable\n# This triggers fish_mode_prompt to output the mode indicator\nset -g __fish_vi_mode 0\n\n# Turn on vi keybindings\nset -g fish_key_bindings fish_vi_key_bindings\nend
+  when: 1444368523
+- cmd: function fish_vi_mode\n# Set the __fish_vi_mode variable\n# This triggers fish_mode_prompt to output the mode indicator\nset -g __fish_vi_mode 1\n\n# Turn on vi keybindings\nset -g fish_key_bindings fish_vi_key_bindings\nend
+  when: 1444368590
+- cmd: function fish_mode_prompt --description 'Displays the current mode'\n# Do nothing if not in vi mode\nif set -q __fish_vi_mode\nswitch $fish_bind_mode\ncase default\nset_color --bold --background red white\n#echo '[N]'\ncase insert\nset_color --bold --background green white\n#echo '[I]'\ncase visual\nset_color --bold --background magenta white\n#echo '[V]'\nend\nset_color normal\necho -n ' '\nend\nend
+  when: 1444368876
+- cmd: function fish_mode_prompt --description 'Displays the current mode'\n# Do nothing if not in vi mode\nif set -q __fish_vi_mode\nswitch $fish_bind_mode\ncase default\nset_color --bold --background red white\n#echo '[N]'\ncase insert\nset_color --bold --background green white\n#echo '[I]'\ncase visual\nset_color --bold --background magenta white\n#echo '[V]'\nend\nset_color normal\necho -n ' '\nend\nend
+  when: 1444368971
+- cmd: n
+  when: 1447433709
+- cmd: y
+  when: 1452240625

@@ -1,0 +1,60 @@
+[options]
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = tewi 9
+scrollback_lines = 10000
+search_wrap = true
+#icon_name = terminal
+geometry = 698x254
+
+# "system", "on" or "off"
+cursor_blink = off
+
+# "block", "underline" or "ibeam"
+cursor_shape = underline
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+browser = exo-open
+
+# set size hints for the window
+#size_hints = false
+
+# emit escape sequences for other keys modified by Control
+#modify_other_keys = false
+
+[colors]
+#c5dbf8
+cursor = #14ff14
+foreground = #b1b3b9
+foreground_bold = #b1b3b9
+background = #11151b
+
+# 20% background transparency (requires a compositor)
+#background = rgba(63, 63, 63, 0.8)
+
+# if unset, will reverse foreground and background
+# highlight = #2f2f2f
+
+# colors from color0 to color254 can be set
+color0 = #1d2a36
+color1 = #2e313b
+color2 = #475ECA
+color3 = #2e4847
+color4 = #213b4b
+color5 = #2e3e3c
+color6 = #23464d
+color7 = #697b7f
+color8 = #697b7f
+color9 = #ff7895
+color10 = #97ffd9
+color11 = #fffeda
+color12 = #b1aff3
+color13 = #ffc397
+color14 = #baf0ff
+color15 = #c7c7d2
