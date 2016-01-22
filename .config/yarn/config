@@ -43,17 +43,21 @@ scroll_interval:    0.12
 # Reverse the side text scrolls in from.
 # Actually reverses the list used to print text to lemonbar, treat scroll_space_side as the inverse when this is set to true.
 scroll_reverse:     false
+# 'Bounce' text back and forth when it is longer than can be displayed.
+scroll_bounce:      true
+# Time the text pauses before continuing to bounce off the end.
+bounce_pause:       1
 # Scroll through the text again if it has finished / is finishing.  (Until the expire_time is up!!)
 # Amount of times to loop.  Note that this does not necessarily mean that it WILL loop this many times.
 # Refrain from using massive amounts, as a string looped twice is simply the original string appended to itself.
 # 1 is equal to 2*body and is still longer than needed with sane timings.
-loopback_amount:    1
+# Do not use this with scroll_bounce, it will be weird if anything.
+loopback_amount:    0
 # The amount of whitespace before the string starts coming again.
 loopback_distance:  9
 # Cut out the middle of strings that are longer than the scroll distance, so that they will fit in one notification.
 # Use in combination with equal scroll_len and scroll_pos for dunst-like behaviour.
-#TODO, remove? # Text will be elipsed to fit into the notification area if it has scrolled everything, and there is still time remaining.
-# DISABLES loopback_amount.
+# Really, there is no point at all to using this with loopback_amount.  It will either offer no change or be buggy.
 ellipse:            false
 
 [style]
@@ -71,7 +75,7 @@ timeout:            10
 # The time the daemon will sleep after receiving a notification.  This can help stability in theory, but also makes notifications pop in a more 'organized' way (once every interval opposed to random timings).
 # This causes the notify-send command to sleep for [sleep] before actually completing… which can have adverse effects on some programs (pidgin is one.)
 sleep:              0
-# Log notifications to /tmp/dthread-log .  Allows users to create their own scripts for better manipulation of incoming notifications.
+# Log notifications to /tmp/yarn-log .  Allows users to create their own scripts for better manipulation of incoming notifications.
 # There is almost no downside:
 # time it takes to open and write to the file on my system:
 # 1450022841.878977 - 1450022841.878758 = 0.000219 seconds~
@@ -79,7 +83,7 @@ sleep:              0
 logging:            true
 # File to log to.  Somewhere in /tmp/ is recommended as it is a ram-disk on most distros and allows fastest write speeds.
 # /tmp/ is also deleted on shutdown.
-log_file:           /tmp/dthread-log
+log_file:           /tmp/yarn-log
 # Trail string, to use.
 trail:              …
 # The text to use when a notification is sent without a summary/body.

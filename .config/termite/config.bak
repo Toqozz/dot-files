@@ -14,13 +14,13 @@ search_wrap = true
 geometry = 698x254
 
 # "system", "on" or "off"
-cursor_blink = system
+cursor_blink = off
 
 # "block", "underline" or "ibeam"
 cursor_shape = block
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-browser = xdg-open
+browser = exo-open
 
 # set size hints for the window
 #size_hints = false
@@ -29,21 +29,22 @@ browser = xdg-open
 #modify_other_keys = false
 
 [colors]
-cursor = #bc3451
-foreground = #e8dfd6
-foreground_bold = #e8dfd6
-background = #042329
+#c5dbf8
+cursor = #c7c7d2
+foreground = #b1b3b9
+foreground_bold = #b1b3b9
+background = #11151b
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
 
 # if unset, will reverse foreground and background
-# highlight = #2f2f2f
+# highlight = #97ffd9
 
 # colors from color0 to color254 can be set
 color0 = #1d2a36
 color1 = #2e313b
-color2 = #1d4847
+color2 = #475ECA
 color3 = #2e4847
 color4 = #213b4b
 color5 = #2e3e3c
@@ -57,16 +58,3 @@ color12 = #b1aff3
 color13 = #ffc397
 color14 = #baf0ff
 color15 = #c7c7d2
-
-[hints]
-font = tewi 9
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
-
-# vim: ft=dosini cms=#%s

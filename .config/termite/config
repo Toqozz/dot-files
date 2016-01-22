@@ -17,7 +17,7 @@ geometry = 698x254
 cursor_blink = off
 
 # "block", "underline" or "ibeam"
-cursor_shape = underline
+cursor_shape = block
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
 browser = exo-open
@@ -29,32 +29,31 @@ browser = exo-open
 #modify_other_keys = false
 
 [colors]
-#c5dbf8
-cursor = #14ff14
-foreground = #b1b3b9
+cursor = #C5C8C6
+foreground = #C5C8C6
 foreground_bold = #b1b3b9
-background = #11151b
+background = #1d1f21
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
 
 # if unset, will reverse foreground and background
-# highlight = #2f2f2f
+# highlight = #97ffd9
 
 # colors from color0 to color254 can be set
-color0 = #1d2a36
-color1 = #2e313b
-color2 = #475ECA
-color3 = #2e4847
-color4 = #213b4b
-color5 = #2e3e3c
-color6 = #23464d
-color7 = #697b7f
-color8 = #697b7f
-color9 = #ff7895
-color10 = #97ffd9
-color11 = #fffeda
-color12 = #b1aff3
-color13 = #ffc397
-color14 = #baf0ff
-color15 = #c7c7d2
+color0 = #282A2E
+color1 = #A54242
+color2 = #8C9440
+color3 = #DE935F
+color4 = #5F819D
+color5 = #85678F
+color6 = #5E8D87
+color7 = #707880
+color8 = #373B41
+color9 = #CC6666
+color10 = #B5BD68
+color11 = #F0C674
+color12 = #81A2BE
+color13 = #B294BB
+color14 = #8ABEB7
+color15 = #C5C8C6

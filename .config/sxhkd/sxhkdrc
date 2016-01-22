@@ -104,10 +104,10 @@ super + alt + Return
         blank
 
 super + alt + space
-        ~/code/notification/scripts/url-open.sh
+        ~/code/python/yarn/scripts/url-open.sh
 
 super + alt + BackSpace
-        ~/code/notification/scripts/close-recent.sh
+        ~/code/python/yarn/scripts/close-recent.sh
 
 # make sxhkd reload its configuration files:
 

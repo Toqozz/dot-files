@@ -37,7 +37,8 @@ xset r rate 200 30 &
 xrdb -merge ~/.Xresources &
 nitrogen --restore &
 panel &
-nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'
+nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1' &
+python /home/toqoz/code/python/yarn/yarn.py &
 
 #python /home/toqoz/code/notification/notification.py &
 
