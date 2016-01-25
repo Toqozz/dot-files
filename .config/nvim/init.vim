@@ -20,6 +20,7 @@ set shiftwidth=4                          " documentation is bare, similar to ta
 set noshowmode                            " put a message on the last line depending on mode
 set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:% " set the characters to list, like spaces or tabs
 set list                                  " show list characters, required for the previous option
+set cursorcolumn                          " hight the column that the cursor is in
 set cursorline                            " highlight the line that the cursor is on
 set tabstop=4                             " the amount of spaces that a tab counts for in the file
 set laststatus=2                          " show the last status, which is required for airline and powerline
@@ -48,9 +49,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_shell = '/bin/bash'
-let g:syntastic_cpp_compiler = 'gcc'
-let g:syntastic_cpp_include_dirs = ['/usr/include/dbus-cxx-0.8', '/usr/include/dbus-1.0', '/usr/include/sigc++-2.0']
-let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_c_include_dirs = ['/usr/include/dbus-1.0', '/usr/include/glib-2.0']
 let g:deoplete#enable_at_startup = 1      " use deoplete
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
