@@ -5,9 +5,10 @@ Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
 Plug 'lilydjwg/colorizer'
 Plug 'sjl/badwolf'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'scrooloose/syntastic'
 Plug 'w0ng/vim-hybrid'
+Plug 'Townk/vim-autoclose'
+Plug 'justinmk/vim-syntax-extra'
 
 call plug#end()
 
@@ -78,5 +79,5 @@ inoremap <silent><expr> <C-l>
 filetype indent on     " enable indent for filetypes, not entirely sure
 
 " scheme / colors
-colorscheme hybrid    " set the colorscheme
+colorscheme gruvbox    " set the colorscheme
 syntax on              " set syntax highlighting to on
