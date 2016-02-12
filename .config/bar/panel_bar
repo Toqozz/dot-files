@@ -14,22 +14,22 @@ while read -r line ; do
 		T*)
 			# xtitle output
                         if [ "$urgent" = true ] ; then
-                            title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_URGENT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_STATUS_FG}${line#?} %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
+                            title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_URGENT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_TITLE_FG}${line#?} %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
                         else
-                            title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_BACKGROUND}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_STATUS_FG}${line#?} %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
+                            title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_BACKGROUND}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_TITLE_FG}${line#?} %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
                         fi
 			;;
 		A*)
 			# sound?
-			audio="%{F$COLOR_STATUS_BG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_STATUS_BG}  %{F$COLOR_STATUS_FG}${line#?}%{B-}%{F-}"
+			audio="%{F$COLOR_STATUS_BG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_STATUS_BG}  %{F$COLOR_TITLE_FG}${line#?}%{B-}%{F-}"
 			;;
 		G*)
 			# card temp
-			gpu="%{F$COLOR_STATUS_FG}%{B$COLOR_ALT2_FG}${line#?} %{B-}%{F-}"
+			gpu="%{F$COLOR_TITLE_FG}%{B$COLOR_ALT2_FG}${line#?} %{B-}%{F-}"
 			;;
 		C*)
 			# cpu temp
-			cpu="%{F$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG}  %{F$COLOR_STATUS_FG}${line#?} %{B-}%{F-}"
+			cpu="%{F$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG}  %{F$COLOR_TITLE_FG}${line#?} %{B-}%{F-}"
 			;;
         W*)
 			# bspwm internal state
@@ -87,7 +87,7 @@ while read -r line ; do
 						# urgent desktop
 						wm_infos="${wm_infos}%{F$COLOR_ALT_FG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{F$COLOR_URGENT_FG}%{B$COLOR_OCCUPIED_BG} ${name}%{F$COLOR_ALT_FG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{B-}%{F-}"
                         urgent=true
-                        title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_URGENT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_STATUS_FG}`xtitle -f '%s'` %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
+                        title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_URGENT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_TITLE_FG}`xtitle -f '%s'` %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
                         ;;
 					#L*)
 					#	# layout

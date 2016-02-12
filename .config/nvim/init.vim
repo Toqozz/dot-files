@@ -79,5 +79,5 @@ inoremap <silent><expr> <C-l>
 filetype indent on     " enable indent for filetypes, not entirely sure
 
 " scheme / colors
-colorscheme gruvbox    " set the colorscheme
+colorscheme badwolf    " set the colorscheme
 syntax on              " set syntax highlighting to on

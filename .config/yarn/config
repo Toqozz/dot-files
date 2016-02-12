@@ -1,6 +1,6 @@
 [lemonbar]
 # Position of the first notification, other notifications will build off this.  0 is the bottom of the screen.
-xpos:               7
+xpos:               1
 # Same as above, 0 is the very left of the screen.
 ypos:               30
 # The gap between notifications.
@@ -8,9 +8,9 @@ gap:                7
 # Should new notifications go above or below the selected one?  Option is ignored if [] is set to 0.
 direction:          up
 # Background color for the notification.
-background:         #FF6f9990
+background:         #FFFFFFFF
 # Foreground (text) color for the notification.
-foreground:         #FF11151b
+foreground:         #FF000000
 # Notification geometry.  [width]x[height]
 width:              300
 height:             16
