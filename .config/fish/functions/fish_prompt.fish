@@ -1,5 +1,5 @@
 function fish_prompt
-   set_color magenta
+   set_color white
    printf '[%s] ————— ' (prompt_pwd)
    set_color normal
 

@@ -50,7 +50,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_shell = '/bin/bash'
-let g:syntastic_c_include_dirs = ['/usr/include/dbus-1.0', '/usr/include/glib-2.0']
+let g:syntastic_c_include_dirs = ['/usr/include/dbus-1.0', '/usr/include/glib-2.0', '/usr/include/cairo']
 let g:deoplete#enable_at_startup = 1      " use deoplete
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
