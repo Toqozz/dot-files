@@ -85,7 +85,7 @@ super + Return
 	termite
 
 super + {_,shift + }space
-    dmenu_run -f -i -dim 0.5 -h 17 -p 'run' -fn 'gohup' -w 2560 -y 712.5 -nb '#11151b' -nf '#b1b3b9' -sb '#2e313b'
+    dmenu_run -f -i -dim 0.5 -h 17 -p 'run' -fn 'gohup' -w 2560 -y 712.5 -nb '#000000' -nf '#ffffff' -sb '#212121'
 	#rofi -show {run,ssh} 
 
 super + grave

@@ -73,7 +73,7 @@ while read -r line ; do
 						# focused urgent desktop
 						wm_infos="${wm_infos}%{F$COLOR_ALT_FG}%{B$COLOR_FOCUSED_URGENT_BG}%{T3}%{T1}%{F$COLOR_FOCUSED_URGENT_FG}%{B$COLOR_FOCUSED_URGENT_BG} ${name}%{F$COLOR_FOCUSED_URGENT_BG}%{B$COLOR_ALT_FG}%{T3}%{T1}%{B-}%{F-}"
 						urgent=true
-                                                title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_URGENT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_STATUS_FG}`xtitle -f '%s'` %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
+                                                title="%{F$COLOR_ALT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1}%{F$COLOR_ICON_FG}%{B$COLOR_ALT2_FG} %{F$COLOR_URGENT_FG}%{B$COLOR_ALT2_FG}%{T3}%{T1} %{F$COLOR_TITLE_FG}`xtitle -f '%s'` %{F$COLOR_ALT2_FG}%{B$COLOR_BACKGROUND}%{T3}%{T1}%{B-}%{F-}"
                                                 ;;
 					o*)
 						# occupied desktop

@@ -32,7 +32,7 @@ browser = exo-open
 cursor = #FFFFFF
 foreground = #FFFFFF
 foreground_bold = #3e464e
-background = #000000
+background = #0d1532
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)

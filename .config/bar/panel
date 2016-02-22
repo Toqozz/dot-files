@@ -22,7 +22,7 @@ while true; do nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader | se
 #while true; do S=3; F=/sys/class/net/enp3s0/statistics/tx_bytes; X=`cat $F`; sleep $S; Y=`cat $F`; BPS="$(((Y-X)/S))"; echo | expr $BPS / 1024 | sed -e 's/^/U/' > "$PANEL_FIFO"; done &
 #while true; do mpc | head -1 | sed -e 's/^/M/' > "$PANEL_FIFO"; sleep 3; done &
 
-cat "$PANEL_FIFO" | panel_bar | lemonbar -b -g 2560x17+1+7 -f "tewi:size=11" -f "siji:size=11" -f "Fira Mono for Powerline:size=16" -o -6 -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+cat "$PANEL_FIFO" | panel_bar | lemonbar -b -g 2560x17+0+7 -f "tewi:size=11" -f "siji:size=11" -f "Fira Mono for Powerline:size=16" -o -6 -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
 
 wait
 #⌜⌟

@@ -2,7 +2,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'bling/vim-airline'
+Plug 'chriskempson/base16-vim'
+Plug 'itchyny/lightline.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'sjl/badwolf'
 Plug 'scrooloose/syntastic'
@@ -40,6 +41,7 @@ set statusline+=%*
 
 " let
 let g:airline_powerline_fonts = 1         " enable powerline fonts for airline
+let base16colorspace=256                  " access colors present in 256 colorspace 
 " let g:ctrlp_working_path_mode = 'c'     " change the working path mode for the ctrl+p plugin
 let g:colorizer_maxlines = 100            " set a maxline value for colorizer in order to be sane
 let g:move_key_modifier = 'C'             " 'vim move' move key modifier
@@ -52,6 +54,18 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_shell = '/bin/bash'
 let g:syntastic_c_include_dirs = ['/usr/include/dbus-1.0', '/usr/include/glib-2.0', '/usr/include/cairo']
 let g:deoplete#enable_at_startup = 1      " use deoplete
+let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ 'active': {
+    \   'left': [ [ 'filename' ],
+    \             [ 'readonly', 'fugitive' ] ],
+    \   'right': [ [ 'percent', 'lineinfo' ],
+    \              [ 'fileencoding', 'filetype' ],
+    \              [ 'fileformat', 'syntastic' ] ]
+    \ },
+    \ 'separator': { 'left': '▓▒░', 'right': '░▒▓' },
+    \ 'subseparator': { 'left': '▒', 'right': '░' }
+    \ }                                   " lightline scheme
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
@@ -76,8 +90,8 @@ inoremap <silent><expr> <C-l>
         \ deoplete#mappings#manual_complete()
 
 " filetype
-filetype indent on     " enable indent for filetypes, not entirely sure
+filetype indent on          " enable indent for filetypes, not entirely sure
 
 " scheme / colors
-colorscheme badwolf    " set the colorscheme
-syntax on              " set syntax highlighting to on
+colorscheme base16-default  " set the colorscheme
+syntax on                   " set syntax highlighting to on
