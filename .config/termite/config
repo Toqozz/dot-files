@@ -30,7 +30,7 @@ browser = exo-open
 
 [colors]
 cursor = #FFFFFF
-foreground = #FFFFFF
+foreground = #9a9faf
 foreground_bold = #3e464e
 background = #0d1532
 

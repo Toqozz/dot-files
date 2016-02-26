@@ -8,9 +8,9 @@ gap:                7
 # Should new notifications go above or below the selected one?  Option is ignored if [] is set to 0.
 direction:          up
 # Background color for the notification.
-background:         #FFFFFFFF
+background:         #FFe2e0d4
 # Foreground (text) color for the notification.
-foreground:         #FF000000
+foreground:         #FF4e4741
 # Notification geometry.  [width]x[height]
 width:              300
 height:             16
