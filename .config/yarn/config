@@ -1,8 +1,8 @@
 [lemonbar]
 # Position of the first notification, other notifications will build off this.  0 is the bottom of the screen.
-xpos:               1
+xpos:               0
 # Same as above, 0 is the very left of the screen.
-ypos:               30
+ypos:               31
 # The gap between notifications.
 gap:                7
 # Should new notifications go above or below the selected one?  Option is ignored if [] is set to 0.
@@ -63,9 +63,9 @@ ellipse:            false
 [style]
 # Regular font to use, has no effects.  YOU MUST USE ORIGINAL X11 FONT STYLE, NOT XFT, IF YOU DO NOT HAVE THE LEMONBAR-XFT FORK https://github.com/krypt-n/bar.
 # Font to use for the summary.  Bold, Italic, Regular.
-summary_font:      tewi:size=9:style=bold
+summary_font:      gohup:size=8:style=bold
 # Font to use for the body.  Bold, Italic, Regular.
-body_font:         tewi:size=9
+body_font:         gohup:size=8
 # Maximum characters to use in a summary.  A summary longer than this will have the last characters changed to '…'.
 summary_chars:      13
 
