@@ -1,79 +1,127 @@
+# see https://github.com/baskerville/bspwm/blob/master/examples/sxhkdrc for updatinng.
+
 #
 # bspwm hotkeys
 #
 
+# quit bspwm normally
 super + alt + Escape
     bspc quit
 
-super + comma
-    bspc window -c
+# close and kill
+super + {_,shift + }comma
+    bspc node -{c,k}
 
+# alternate between the tiled and monacle layout
 super + y
     bspc desktop -l next
 
+# swap the current node and the biggest node
 super + x
-    bspc desktop -B
+    bspc node -s biggest
 
-super + {o,u}
-    bspc window -t {floating,fullscreen}
+#
+# state/flags
+#
 
+# set the window state
+super + {t,shift + t,o,u}
+    bspc node -t {tiled, pseudo_tiled,~floating,fullscreen}
+
+# set the node flags
+super + ctrl + {z,v,w}
+    bspc node -g {locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
+# focus the next/previous node
+super + {_,shift + }c
+    bspc window -f {next,prev}
+
+# focus the next/previous desktop
+super + bracket{left,right}
+    bspc desktop -f {prev,next}
+
+# focus the last desktop
 super + Tab
     bspc desktop -f last
 
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0,apostrophe,period}
+    bspc {desktop -f,node -d} '^{1-9,10,5,6}'
+
+# swap with previous node
 super + minus
-    bspc window -s last
+    bspc node -s last
 
-super + {i,d}
-    bspc control --record-history off; \
-    bspc window {older,newer} -f; \
-    bspc control --record-history on
+#
+# preselect
+#
 
-super + f
-    bspc window -w last.manual
+#super + {i,d}
+    #bspc control --record-history off; \
+    #bspc window {older,newer} -f; \
+    #bspc control --record-history on
+
+#super + f
+    #bspc window -w last.manual
 
 super + m
     bspc desktop HDMI-0:focused --swap DP-1:focused; \
     bspc monitor --focus last
 
-super + {_,shift + }{h,j,k,l}
-    bspc window -{f,s} {left,down,up,right}
 
-super + {_,shift + }c
-    bspc window -f {next,prev}
-
-super + {w,v}
-    bspc desktop -C {backward,forward}
-
-super + bracket{left,right}
-    bspc desktop -f {prev,next}
-
+# preselect the direction
 super + ctrl + {h,j,k,l}
-    bspc window -p {left,down,up,right}
+    bspc node -p {west,south,north,east}
 
-super + ctrl + {_,shift + }space
-    bspc {window -p cancel,desktop -c}
-
-super + alt + {h,j,k,l}
-    bspc window -e {left -10,down +10,up -10,right +10}
-
-super + alt + shift + {h,j,k,l}
-    bspc window -e {right -10,up +10,down -10,left +10}
-
+# preselect the ratio
 super + ctrl + {1-9}
-    bspc window -r 0.{1-9}
+    bspc node -o 0.{1-9}
 
-super + {_,shift + }{1-9,0,apostrophe,period}
-    bspc {desktop -f,window -d} '^{1-9,10,5,6}'
+# cancel the preselection for the focused node
+super + ctrl + space
+    bspc node -p cancel
 
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+    bspc query -N -d | xargs -I id -nn 1 bspc node id -p cancel
+
+# 
+# resize tiled/floating
+#
+
+# expand the tiled space in the given direction
+super + alt + {h,j,k,l}
+    bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+
+# contract the tiled space in the given direction
+super + alt + shift + {h,j,k,l}
+    bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+    xdo move {-x -20, -y +20, -y -20, -x +20}
+
+#
+# pointer focus/move/resize
+#
+
+# focus
 ~button1
     bspc pointer -g focus
 
+# start move/resize
 super + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
 
-super + !button{1-3}
-    bspc pointer -t %i %i
-
+# end move/resize
 super + @button{1-3}
     bspc pointer -u
 
@@ -85,7 +133,7 @@ super + Return
 	termite
 
 super + {_,shift + }space
-    dmenu_run -f -i -dim 0.5 -h 17 -p 'run' -fn 'gohup' -w 2560 -y 712.5 -nb '#000000' -nf '#ffffff' -sb '#212121'
+    dmenu_run -f -i -dim 0.5 -h 17 -p 'run' -fn 'gohup' -w 2560 -y 712.5 -nb '#c3bea1' -nf '#787564' -sb '#787564' -sf '#c3bea1'
 	#rofi -show {run,ssh} 
 
 super + grave

@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
+Plug 'lucy/term.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'sjl/badwolf'
@@ -93,5 +94,5 @@ inoremap <silent><expr> <C-l>
 filetype indent on          " enable indent for filetypes, not entirely sure
 
 " scheme / colors
-colorscheme base16-default  " set the colorscheme
+colorscheme gruvbox  " set the colorscheme
 syntax on                   " set syntax highlighting to on

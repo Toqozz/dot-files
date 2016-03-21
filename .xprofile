@@ -12,8 +12,5 @@ export EDITOR="nvim"
 
 xset -dpms &
 xset s off &
-xset +fp /usr/share/fonts/local &
-xset fp rehash &
-xset r rate 200 30 &
 setxkbmap -option compose:menu &
 
