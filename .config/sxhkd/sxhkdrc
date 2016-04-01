@@ -42,7 +42,7 @@ super + {_,shift + }{h,j,k,l}
 
 # focus the next/previous node
 super + {_,shift + }c
-    bspc window -f {next,prev}
+    bspc node -f {next,prev}
 
 # focus the next/previous desktop
 super + bracket{left,right}
@@ -69,8 +69,8 @@ super + minus
     #bspc window {older,newer} -f; \
     #bspc control --record-history on
 
-#super + f
-    #bspc window -w last.manual
+super + f
+    bspc node -n last.manual
 
 super + m
     bspc desktop HDMI-0:focused --swap DP-1:focused; \
@@ -139,7 +139,7 @@ super + {_,shift + }space
 super + grave
         teiler	
 
-super + {Left,Right,Down,Up}
+super shift + {Left,Right,Down,Up}
         mpc {prev,next,pause,play}
 
 super + {KP_Add, KP_Subtract}

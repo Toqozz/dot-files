@@ -11,6 +11,11 @@ Plug 'scrooloose/syntastic'
 Plug 'w0ng/vim-hybrid'
 Plug 'Townk/vim-autoclose'
 Plug 'justinmk/vim-syntax-extra'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'jacquesbh/vim-showmarks'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
 
 call plug#end()
 
@@ -41,8 +46,13 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " let
+"let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+"let g:deoplete#sources#clang#clang_header = '/usr/include/lib/clang'
+"let g:deoplete#sources#clang#std#c = 'c11'
+"let g:deoplete#sources#clang#clang_complete_database = '/home/toqoz/code/build'
+let NERDTreeShowHidden = 1
 let g:airline_powerline_fonts = 1         " enable powerline fonts for airline
-let base16colorspace=256                  " access colors present in 256 colorspace 
+let base16colorspace = 256                  " access colors present in 256 colorspace 
 " let g:ctrlp_working_path_mode = 'c'     " change the working path mode for the ctrl+p plugin
 let g:colorizer_maxlines = 100            " set a maxline value for colorizer in order to be sane
 let g:move_key_modifier = 'C'             " 'vim move' move key modifier
@@ -54,7 +64,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_shell = '/bin/bash'
 let g:syntastic_c_include_dirs = ['/usr/include/dbus-1.0', '/usr/include/glib-2.0', '/usr/include/cairo']
-let g:deoplete#enable_at_startup = 1      " use deoplete
+"let g:deoplete#enable_at_startup = 1      " use deoplete
 let g:lightline = {
     \ 'colorscheme': 'seoul256',
     \ 'active': {
@@ -81,17 +91,22 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 " 4. enable the sudo-save
 nnoremap <space> za
 inoremap hl <esc>
-inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+
+"inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
 vnoremap . :norm.<CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+map <C-n> :NERDTreeToggle<CR>
+"nmap <C-l> :TagbarOpenAutoClose<CR>
 
 " tab for completion.
-inoremap <silent><expr> <C-l>
-        \ pumvisible() ? "\<C-n>" :
-        \ deoplete#mappings#manual_complete()
+"inoremap <silent><expr> <C-l>
+"        \ pumvisible() ? "\<C-n>" :
+"        \ deoplete#mappings#manual_complete()
 
 " filetype
 filetype indent on          " enable indent for filetypes, not entirely sure
+
+autocmd VimEnter * DoShowMarks
 
 " scheme / colors
 colorscheme gruvbox  " set the colorscheme
