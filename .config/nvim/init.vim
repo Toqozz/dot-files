@@ -96,7 +96,7 @@ inoremap hl <esc>
 vnoremap . :norm.<CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 map <C-n> :NERDTreeToggle<CR>
-"nmap <C-l> :TagbarOpenAutoClose<CR>
+nmap <C-l> :TagbarOpenAutoClose<CR>
 
 " tab for completion.
 "inoremap <silent><expr> <C-l>
