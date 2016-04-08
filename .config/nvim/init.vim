@@ -3,7 +3,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
-Plug 'lucy/term.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'sjl/badwolf'
@@ -98,7 +97,7 @@ inoremap hl <esc>
 vnoremap . :norm.<CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 map <C-n> :NERDTreeToggle<CR>
-nmap <C-r> :TagbarOpenAutoClose<CR>
+nmap <C-m> :TagbarOpenAutoClose<CR>
 
 " tab for completion.
 inoremap <silent><expr> <C-l>
