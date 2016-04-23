@@ -19,7 +19,8 @@ Plug 'zchee/deoplete-clang'
 call plug#end()
 " set 
 set nowrap                                " you have to scroll horizontally to see the entire line
-set scrolloff=7                           " amount of context lines
+set spell                                 " how to spell
+set scrolloff=15                          " amount of context lines
 set modeline                              " enable the modeline [insert, visual, normal, etc]
 set background=dark                       " enable a dark background for colorscheme
 set expandtab                             " whether to use spaces instead of tabs
@@ -46,6 +47,7 @@ set foldmethod=indent                     " set the fold method, such as marker 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set clipboard+=unnamedplus                " use the system clipboard all the time
 
 " let
 let g:deoplete#enable_at_startup = 1      " use deoplete

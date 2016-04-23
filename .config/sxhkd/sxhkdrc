@@ -130,34 +130,34 @@ super + @button{1-3}
 #
 
 super + Return
-	termite
+    termite
 
 super + {_,shift + }space
     dmenu_run -f -i -dim 0.5 -h 17 -p 'run' -fn 'gohup' -w 2560 -y 712.5 -nb '#c3bea1' -nf '#787564' -sb '#787564' -sf '#c3bea1'
-	#rofi -show {run,ssh} 
+    #rofi -show {run,ssh} 
 
 super + grave
-        teiler	
+    ~/code/shell/slip/slip
 
 super shift + {Left,Right,Down,Up}
-        mpc {prev,next,pause,play}
+    mpc {prev,next,pause,play}
 
 super + {KP_Add, KP_Subtract}
-        mpc volume {+3,-3}
+    mpc volume {+3,-3}
 
 super + backslash
-        ~/git/snippy.sh
+    ~/git/snippy.sh
 
 super + alt + Return
-        blank
+    blank
 
 super + alt + space
-        ~/code/python/yarn/scripts/url-open.sh
+    ~/code/python/yarn/scripts/url-open.sh
 
 super + alt + BackSpace
-        ~/code/python/yarn/scripts/close-recent.sh
+    ~/code/python/yarn/scripts/close-recent.sh
 
 # make sxhkd reload its configuration files:
 
 super + Escape
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd

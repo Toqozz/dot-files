@@ -24,7 +24,7 @@ bspc rule -a Steam desktop=^5
 bspc rule -a Pidgin desktop=^2 state=pseudo_tiled
 bspc rule -a thunar state=floating
 bspc rule -a Thunar state=floating
-bspc rule -a transparent_blank border=false
+bspc rule -a \*:transparent_blank border=false
 bspc rule -a Mumble state=floating
 
 bspc config focused_border_color '#2f4a5e'
