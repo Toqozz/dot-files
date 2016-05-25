@@ -1,6 +1,7 @@
 function fish_prompt
+	set stat $status
    set_color white
-   printf '[%s] ————— ' (prompt_pwd)
+   printf '[%s][%s] ————— ' $stat (prompt_pwd)
    set_color normal
 
    # Line 2

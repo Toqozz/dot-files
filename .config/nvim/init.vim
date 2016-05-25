@@ -18,9 +18,10 @@ Plug 'zchee/deoplete-clang'
 
 call plug#end()
 " set 
-set nowrap                                " you have to scroll horizontally to see the entire line
-set spell                                 " how to spell
-set scrolloff=15                          " amount of context lines
+" set nowrap                                " you have to scroll horizontally to see the entire line
+" set spell                                 " how to spell
+set relativenumber
+set scrolloff=10                          " amount of context lines
 set modeline                              " enable the modeline [insert, visual, normal, etc]
 set background=dark                       " enable a dark background for colorscheme
 set expandtab                             " whether to use spaces instead of tabs
