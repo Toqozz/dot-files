@@ -133,11 +133,11 @@ super + Return
     termite
 
 super + {_,shift + }space
-    dmenu_run -f -i -dim 0.5 -h 17 -p 'run' -fn 'gohup' -w 2560 -y 712.5 -nb '#c3bea1' -nf '#787564' -sb '#787564' -sf '#c3bea1'
+    dmenu_run -f -i -dim 0.5 -h 17 -p 'run' -fn 'gohup' -w 2560 -y 712.5 -nb '#021b21' -nf '#e8dfd6' -sb '#f2f1b9' -sf '#032c36'
     #rofi -show {run,ssh} 
 
 super + grave
-    ~/code/shell/slip/slip
+    slip
 
 super shift + {Left,Right,Down,Up}
     mpc {prev,next,pause,play}

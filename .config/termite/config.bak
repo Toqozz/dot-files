@@ -3,11 +3,11 @@ scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
 mouse_autohide = true
-allow_bold = true
+allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = tewi 9
+font = tewi 12
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -29,11 +29,10 @@ browser = exo-open
 #modify_other_keys = false
 
 [colors]
-#c5dbf8
-cursor = #c7c7d2
-foreground = #b1b3b9
-foreground_bold = #b1b3b9
-background = #11151b
+cursor = #ebdbb2
+foreground = #9a9faf
+foreground_bold = #3e464e
+background = #282828
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
@@ -42,19 +41,19 @@ background = #11151b
 # highlight = #97ffd9
 
 # colors from color0 to color254 can be set
-color0 = #1d2a36
-color1 = #2e313b
-color2 = #475ECA
-color3 = #2e4847
-color4 = #213b4b
-color5 = #2e3e3c
-color6 = #23464d
-color7 = #697b7f
-color8 = #697b7f
-color9 = #ff7895
-color10 = #97ffd9
-color11 = #fffeda
-color12 = #b1aff3
-color13 = #ffc397
-color14 = #baf0ff
-color15 = #c7c7d2
+color0 = #3e464e
+color1 = #db0a5b
+color2 = #3fc380
+color3 = #f2784b
+color4 = #22a7f0
+color5 = #f64747
+color6 = #55aeae
+color7 = #ecf0f1
+color8 = #3e464e
+color9 = #db0a5b
+color10 = #3fc380
+color11 = #f2784b
+color12 = #22a7f0
+color13 = #f64747
+color14 = #55aeae
+color15 = #ecf0f1

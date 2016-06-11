@@ -24,14 +24,15 @@ bspc rule -a Steam desktop=^5
 bspc rule -a Pidgin desktop=^2 state=pseudo_tiled
 bspc rule -a thunar state=floating
 bspc rule -a Thunar state=floating
+bspc rule -a Gimp state=floating
 bspc rule -a \*:transparent_blank border=false
 bspc rule -a Mumble state=floating
 bspc rule -a franz desktop=^2 state=pseudo_tiled
 
-bspc config focused_border_color '#00FF00'
-bspc config normal_border_color '#1C2328'
-bspc config presel_feedback_color '#1C2328'
-bspc config urgent_border_color '#bc3451'
+bspc config focused_border_color '#44b5b1'
+bspc config normal_border_color '#021b21'
+bspc config presel_feedback_color '#021b21'
+bspc config urgent_border_color '#ff5879'
 
 compton --config ~/.config/compton/compton.conf -b &
 xset +fp /usr/share/fonts/local &
