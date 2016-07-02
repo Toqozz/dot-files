@@ -18,7 +18,7 @@ super + y
 
 # swap the current node and the biggest node
 super + x
-    bspc node -s biggest
+    bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
 #
 # state/flags

@@ -15,6 +15,7 @@ Plug 'majutsushi/tagbar'
 Plug 'jacquesbh/vim-showmarks'
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-clang'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 
 call plug#end()
 " set 
@@ -23,7 +24,7 @@ call plug#end()
 set relativenumber
 set scrolloff=10                          " amount of context lines
 set modeline                              " enable the modeline [insert, visual, normal, etc]
-set background=dark                       " enable a dark background for colorscheme
+set background=light                      " enable a dark background for colorscheme
 set expandtab                             " whether to use spaces instead of tabs
 set softtabstop=4                         " use the appropriate amount of spaces to insert a tab
 set shiftwidth=4                          " documentation is bare, similar to tabs
@@ -58,11 +59,13 @@ let g:deoplete#sources#clang#libclang_path = '/home/toqoz/code/build/clang+llvm/
 let g:deoplete#sources#clang#clang_header = '/home/toqoz/code/build/clang+llvm/lib/clang'
 let NERDTreeShowHidden = 1
 let g:airline_powerline_fonts = 1         " enable powerline fonts for airline
-let base16colorspace = 256                  " access colors present in 256 colorspace 
+"let base16colorspace = 256                  " access colors present in 256 colorspace 
+let g:solarized_termcolors= 256
+let g:solarized_contrast = "normal"
 let g:colorizer_maxlines = 100            " set a maxline value for colorizer in order to be sane
 let g:move_key_modifier = 'C'             " 'vim move' move key modifier
 let g:gruvbox_italic=1                    " use italics in the gruvbox theme
-let g:gruvbox_color_contrast= 'hard'      " dark contrast for gruvbox theme
+"let g:gruvbox_color_contrast= 'hard'      " dark contrast for gruvbox theme
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -113,5 +116,5 @@ filetype plugin indent on          " enable indent for filetypes, not entirely s
 autocmd VimEnter * DoShowMarks
 
 " scheme / colors
-colorscheme gruvbox  " set the colorscheme
+colorscheme solarized  " set the colorscheme
 syntax on                   " set syntax highlighting to on
