@@ -43,4 +43,10 @@ rofi.auto-select:       true
 rofi.levenshtein-sort:  true
 rofi.hide-scrollbar:    true
 
-Xft.dpi:           81x80
+Xft.antialias:      1
+Xft.hintstyle:      2
+Xft.autohint:       0
+Xft.hinting:        1
+Xft.rgba:           rgba
+Xft.lcdfilter:      1
+Xft.dpi:            81x80

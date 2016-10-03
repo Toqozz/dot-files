@@ -6,7 +6,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'sjl/badwolf'
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic', {'commit':'0bedeb9'}
 Plug 'w0ng/vim-hybrid'
 Plug 'Townk/vim-autoclose'
 Plug 'justinmk/vim-syntax-extra'
@@ -16,6 +16,8 @@ Plug 'jacquesbh/vim-showmarks'
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-clang'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 " set 
@@ -50,6 +52,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set clipboard+=unnamedplus                " use the system clipboard all the time
+set termguicolors
 
 " let
 let g:deoplete#enable_at_startup = 1      " use deoplete
@@ -60,8 +63,8 @@ let g:deoplete#sources#clang#clang_header = '/home/toqoz/code/build/clang+llvm/l
 let NERDTreeShowHidden = 1
 let g:airline_powerline_fonts = 1         " enable powerline fonts for airline
 "let base16colorspace = 256                  " access colors present in 256 colorspace 
-let g:solarized_termcolors= 256
-let g:solarized_contrast = "normal"
+"let g:solarized_termcolors= 256
+"let g:solarized_contrast = "normal"
 let g:colorizer_maxlines = 100            " set a maxline value for colorizer in order to be sane
 let g:move_key_modifier = 'C'             " 'vim move' move key modifier
 let g:gruvbox_italic=1                    " use italics in the gruvbox theme
@@ -85,7 +88,7 @@ let g:lightline = {
     \ 'subseparator': { 'left': '▒', 'right': '░' }
     \ }                                   " lightline scheme
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+"let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
 " mappings
@@ -97,6 +100,8 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 " 3. make . = control . (not fully sure: https://danielmiessler.com/study/vim/
 " 4. enable the sudo-save
 nnoremap <space> za
+nnoremap <Leader>; :Goyo<CR>
+nnoremap <Leader>q :Limelight!! 0.5<CR>
 inoremap hl <esc>
 
 "inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"

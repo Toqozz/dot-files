@@ -70,7 +70,7 @@ super + minus
     #bspc control --record-history on
 
 super + f
-    bspc node -n last.manual
+    bspc query -N -n focused.automatic; and bspc node -n last.!automatic; or bspc node last.leaf -n focused
 
 super + m
     bspc desktop HDMI-0:focused --swap DP-1:focused; \
