@@ -20,26 +20,26 @@ urxvt.color15:      #F6F6C9
 
 rofi.modi:          run,ssh
 rofi.opacity:       100
-rofi.width:         1902
-rofi.columns:       6
-rofi.lines:         1
-rofi.font:          tewi 9
-rofi.fg:            #c7c7d2
-rofi.bg:            #11151b
+rofi.width:         600
+rofi.columns:       1
+rofi.lines:         5
+rofi.font:          Operator Mono Book 10
+rofi.fg:            #ebdbb2
+rofi.bg:            #282828
 rofi.color-enabled: true
 ! State:            'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-rofi.color-normal:  #11151b,#b1b3b9,#11151b,#11151b,#c7c7d2
-rofi.color-urgent:  #11151b,#b1b3b9,#11151b,#11151b,#c7c7d2
-rofi.color-active:  #11151b,#b1b3b9,#11151b,#11151b,#c7c7d2
-rofi.color-window:  #11151b,#11151b
-rofi.bw:            0
-rofi.location:      7
-rofi.padding:       2
-rofi.yoffset:       -30
-rofi.xoffset:       7
+rofi.color-normal:  #282828,#ebdbb2,#282828,#282828,#b8bb26
+!rofi.color-urgent:  #11151b,#b1b3b9,#11151b,#11151b,#c7c7d2
+rofi.color-active:  #282828,#ebdbb2,#282828,#282828,#ebdbb2
+rofi.color-window:  #282828,#ebdbb2, #282828
+rofi.bw:            3
+rofi.location:      8
+rofi.padding:       4
+rofi.yoffset:       0
+rofi.xoffset:       660
 rofi.fixed-num-lines:   false
 rofi.terminal:          termite
-rofi.auto-select:       true
+rofi.auto-select:       false
 rofi.levenshtein-sort:  true
 rofi.hide-scrollbar:    true
 

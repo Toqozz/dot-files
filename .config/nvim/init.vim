@@ -13,11 +13,9 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'jacquesbh/vim-showmarks'
-Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-clang'
+"Plug 'Shougo/deoplete.nvim'
+"Plug 'zchee/deoplete-clang'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 
 call plug#end()
 " set 
@@ -26,7 +24,7 @@ call plug#end()
 set relativenumber
 set scrolloff=10                          " amount of context lines
 set modeline                              " enable the modeline [insert, visual, normal, etc]
-set background=light                      " enable a dark background for colorscheme
+set background=dark                      " enable a dark background for colorscheme
 set expandtab                             " whether to use spaces instead of tabs
 set softtabstop=4                         " use the appropriate amount of spaces to insert a tab
 set shiftwidth=4                          " documentation is bare, similar to tabs
@@ -121,5 +119,5 @@ filetype plugin indent on          " enable indent for filetypes, not entirely s
 autocmd VimEnter * DoShowMarks
 
 " scheme / colors
-colorscheme solarized  " set the colorscheme
+colorscheme gruvbox  " set the colorscheme
 syntax on                   " set syntax highlighting to on

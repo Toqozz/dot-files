@@ -7,7 +7,7 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Inconsolata 10
+font = Operator Mono Book 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -29,10 +29,10 @@ browser = exo-open
 #modify_other_keys = false
 
 [colors]
-cursor = #586e75
-foreground = #657b83
-foreground_bold = #586e75
-background = #fdf6e3
+cursor = #ebdbb2
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
+background = #282828
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
@@ -41,19 +41,19 @@ background = #fdf6e3
 # highlight = #97ffd9
 
 # colors from color0 to color254 can be set
-color0 =  #eee8d5
-color8 =  #fdf6e3
-color1 =  #dc322f
-color9 =  #cb4b16
-color2 =  #859900
-color10 = #93a1a1
-color3 =  #b58900
-color11 = #839496
-color4 =  #268bd2
-color12 = #657b83
-color5 =  #d33682
-color13 = #6c71c4
-color6 =  #2aa198
-color14 = #586e75
-color7 =  #073642
-color15 = #002b36
+color0 =  #282828
+color8 =  #928374
+color1 =  #cc241d
+color9 =  #fb4934
+color2 =  #98971a
+color10 = #b8bb26
+color3 =  #d79921
+color11 = #fabd2f
+color4 =  #458588
+color12 = #83a598
+color5 =  #b16286
+color13 = #d3869b
+color6 =  #689d6a
+color14 = #8ec07c
+color7 =  #a89984
+color15 = #ebddb2

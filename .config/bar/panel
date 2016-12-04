@@ -24,7 +24,7 @@ while true; do nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader | se
 #while true; do mpc | head -1 | sed -e 's/^/M/' > "$PANEL_FIFO"; sleep 3; done &
 
 
-panel_bar < "$PANEL_FIFO" | lemonbar -b -g 2560x17+0+7 -f "gohup:size=11" -f "siji:size=11" -f "Fira Mono for Powerline:size=16" -o -7 -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+panel_bar < "$PANEL_FIFO" | lemonbar -b -g 2560x17+0+7 -f "GohuFont:size=11" -f "siji:size=11" -f "Inconsolata:size=16" -o -7 -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
 
 wid=$(xdo id -a "$PANEL_WM_NAME")
 tries_left=20
