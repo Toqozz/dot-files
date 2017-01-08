@@ -36,7 +36,7 @@ rofi.bw:            3
 rofi.location:      8
 rofi.padding:       4
 rofi.yoffset:       0
-rofi.xoffset:       660
+rofi.xoffset:       980
 rofi.fixed-num-lines:   false
 rofi.terminal:          termite
 rofi.auto-select:       false

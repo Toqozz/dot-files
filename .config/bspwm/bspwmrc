@@ -15,11 +15,11 @@ bspc config gapless_monocle     true
 #bspc config focus_by_distance   true
 bspc config focus_follows_pointer true
 
-bspc monitor '^1' -d     
-#bspc monitor '^2' -d  
+bspc monitor '^1' -d  
+bspc monitor '^2' -d     
 
 bspc rule -a Termite state=floating
-bspc rule -a Steam desktop=^5
+bspc rule -a Steam desktop=^1
 bspc rule -a Pidgin desktop=^2 state=pseudo_tiled
 bspc rule -a Discord desktop=^2
 bspc rule -a thunar state=floating
@@ -39,11 +39,11 @@ xset r rate 200 30 &
 xsetroot -cursor_name left_ptr &
 xset +fp /usr/share/fonts/local &
 xset fp rehash &
-xset -dpms &
 xrdb -merge ~/.Xresources &
 nitrogen --restore &
 nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1' &
-termite --class=scratchpad -e ~/bin/scratch &
+termite --geometry 698x254+3755+7 --class=scratchpad -e ~/bin/scratch &
+/home/toqoz/code/c/yarn/yarn &
 #python /home/toqoz/code/python/yarn/yarn.py &
 #panel &
 

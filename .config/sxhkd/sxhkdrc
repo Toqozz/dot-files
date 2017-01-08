@@ -76,7 +76,7 @@ super + minus
     #bspc control --record-history on
 
 super + f
-    bspc query -N -n focused.automatic; and bspc node -n last.!automatic; or bspc node last.leaf -n focused
+    bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
 super + m
     bspc desktop HDMI-0:focused --swap DP-1:focused; \
@@ -171,5 +171,5 @@ super + Escape
 # scratchpad
 
 super + s
-    set id (cat /tmp/scratchid); \
+    id=$(cat /tmp/scratchid); \
     bspc node $id --flag hidden; bspc node -f $id

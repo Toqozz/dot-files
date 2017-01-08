@@ -57,3 +57,5 @@ color6 =  #689d6a
 color14 = #8ec07c
 color7 =  #a89984
 color15 = #ebddb2
+
+# vim: syn=cfg

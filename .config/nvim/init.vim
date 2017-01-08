@@ -2,22 +2,20 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'lilydjwg/colorizer'
-Plug 'sjl/badwolf'
 Plug 'scrooloose/syntastic', {'commit':'0bedeb9'}
 Plug 'w0ng/vim-hybrid'
 Plug 'Townk/vim-autoclose'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
-Plug 'jacquesbh/vim-showmarks'
+Plug 'itchyny/vim-cursorword'
+Plug 'airblade/vim-gitgutter'
 "Plug 'Shougo/deoplete.nvim'
 "Plug 'zchee/deoplete-clang'
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
 
 call plug#end()
+
 " set 
 " set nowrap                                " you have to scroll horizontally to see the entire line
 " set spell                                 " how to spell
