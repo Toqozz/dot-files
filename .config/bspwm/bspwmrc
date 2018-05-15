@@ -1,13 +1,14 @@
 #! /bin/sh
 
+export SHELL=/usr/bin/fish
 sxhkd &
 
-bspc config border_width       3
+bspc config border_width       0
 bspc config window_gap         0
-bspc config bottom_padding     7
-bspc config right_padding      7
-bspc config left_padding       7
-bspc config top_padding        7
+bspc config bottom_padding     0
+bspc config right_padding      0
+bspc config left_padding       0
+bspc config top_padding        0
 
 bspc config split_ratio         0.61803
 bspc config borderless_monocle  true
@@ -15,15 +16,14 @@ bspc config gapless_monocle     true
 #bspc config focus_by_distance   true
 bspc config focus_follows_pointer true
 
-bspc monitor '^1' -d  
-bspc monitor '^2' -d     
+bspc monitor '^1' -d 1 2
+bspc monitor '^2' -d 3 4 5 6 7
 
 bspc rule -a Termite state=floating
 bspc rule -a Steam desktop=^1
 bspc rule -a Pidgin desktop=^2 state=pseudo_tiled
 bspc rule -a Discord desktop=^2
-bspc rule -a thunar state=floating
-bspc rule -a Thunar state=floating
+bspc rule -a Nautilus state=floating
 bspc rule -a Gimp state=floating
 bspc rule -a \*:transparent_blank border=false
 bspc rule -a Mumble state=floating
@@ -34,16 +34,16 @@ bspc config normal_border_color '#928374'
 bspc config presel_feedback_color '#928374'
 bspc config urgent_border_color '#fb4934'
 
+xhost +local: &
 compton --config ~/.config/compton/compton.conf -b &
-xset r rate 200 30 &
 xsetroot -cursor_name left_ptr &
 xset +fp /usr/share/fonts/local &
 xset fp rehash &
+xset r rate 200 30 &
 xrdb -merge ~/.Xresources &
 nitrogen --restore &
 nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1' &
-termite --geometry 698x254+3755+7 --class=scratchpad -e ~/bin/scratch &
-/home/toqoz/code/c/yarn/yarn &
+#termite --geometry 2539x350+7+7 --class=scratchpad -e ~/bin/scratch &
 #python /home/toqoz/code/python/yarn/yarn.py &
 #panel &
 
