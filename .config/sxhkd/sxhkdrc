@@ -18,7 +18,8 @@ super + y
 
 # swap the current node and the biggest node
 super + x
-    bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+    bspc node -n 'last.!automatic.local'
+    #bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
 # insert receptacle, or clear receptacles on current desktop
 super + {_,shift} + r
@@ -76,7 +77,8 @@ super + minus
     #bspc control --record-history on
 
 super + f
-    bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+    bspc node -n 'list.!automatic.local'
+    #bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
 super + m
     bspc desktop HDMI-0:focused --swap DP-1:focused; \
@@ -136,7 +138,7 @@ super + {Left,Down,Up,Right}
 #
 
 super + Return
-    termite
+    alacritty
 
 super + {_,shift + }space
     rofi -show {run, window} 

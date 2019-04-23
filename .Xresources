@@ -42,6 +42,7 @@ rofi.terminal:          termite
 rofi.auto-select:       false
 rofi.levenshtein-sort:  true
 rofi.hide-scrollbar:    true
+rofi.monitor: DP-4
 
 Xft.antialias:      1
 Xft.hintstyle:      2

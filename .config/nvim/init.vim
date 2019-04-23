@@ -1,48 +1,35 @@
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.config/nvim/plugged')
-
 Plug 'morhetz/gruvbox'
-"Plug 'itchyny/lightline.vim'
-Plug 'lilydjwg/colorizer'
-"Plug 'scrooloose/syntastic', {'commit':'0bedeb9'}
-Plug 'w0ng/vim-hybrid'
-Plug 'Townk/vim-autoclose'
+Plug 'jeromedalbert/auto-pairs', { 'branch': 'better-auto-pairs' }
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'justinmk/vim-syntax-extra'
-Plug 'scrooloose/nerdtree'
-Plug 'itchyny/vim-cursorword'
-Plug 'airblade/vim-gitgutter'
+Plug 'pboettch/vim-highlight-cursor-words'
 Plug 'rust-lang/rust.vim'
-Plug 'Valloric/YouCompleteMe'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-"Plug 'junegunn/limelight.vim'
-"Plug 'junegunn/goyo.vim'
-
+Plug 'racer-rust/vim-racer'
+Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'Yilin-Yang/vim-markbar'
 call plug#end()
 
-" set 
-" set nowrap                                " you have to scroll horizontally to see the entire line
-" set spell                                 " how to spell
-set relativenumber
-set number
+" set
+set relativenumber                        " line numbers are relative to cursor position
+set number                                " show number where 0 would be in relativenumber
 set scrolloff=2                           " amount of context lines
-"set modeline                              " enable the modeline [insert, visual, normal, etc]
 set background=dark                       " enable a dark background for colorscheme
 set expandtab                             " whether to use spaces instead of tabs
 set softtabstop=4                         " use the appropriate amount of spaces to insert a tab
 set pumheight=10                          " number of autocompletion lines
 set shiftwidth=4                          " documentation is bare, similar to tabs
-"set noshowmode                            " put a message on the last line depending on mode
+set noshowmode                            " put a message on the last line depending on mode
 set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:% " set the characters to list, like spaces or tabs
 set list                                  " show list characters, required for the previous option
-"set cursorcolumn                          " hight the column that the cursor is in
-"set cursorline                            " highlight the line that the cursor is on
 set tabstop=4                             " the amount of spaces that a tab counts for in the file
 set laststatus=0                          " show the last status, which is required for airline and powerline
-"set number                                " enable display of line numbers
-"set showcmd                               " show the last command on the last line (bottom right)
 set showmatch                             " show matches in search
 set incsearch                             " match searches as you type
 set hlsearch                              " highlight searches
@@ -52,77 +39,98 @@ set foldenable                            " enable the use of folds (basiccaly f
 set foldlevelstart=10                     " start folding at X level
 set foldnestmax=10                        " fold extremely nested things automatically
 set foldmethod=indent                     " set the fold method, such as marker or indent
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-set clipboard+=unnamedplus                " use the system clipboard all the time
-set termguicolors
-set omnifunc=syntaxcomplete#Complete
+set clipboard+=unnamedplus                " enable the copy/pasting to use the system clipboard
+set termguicolors                         " truecolor support(?)
+set cmdheight=2                           " give messages a bit more room to display
+set signcolumn=no                         " hide the sign column (left side gutter)
 
 " let
-let NERDTreeShowHidden = 1
-let g:airline_powerline_fonts = 1         " enable powerline fonts for airline
-let g:EclimCompletionMethod='omnifunc'
-let g:ycm_min_num_of_chars_for_completion = 3
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_select_completion = ['<C-l>']
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-"let base16colorspace = 256                  " access colors present in 256 colorspace 
-"let g:solarized_termcolors= 256
-"let g:solarized_contrast = "normal"
-let g:colorizer_maxlines = 100            " set a maxline value for colorizer in order to be sane
-let g:move_key_modifier = 'C'             " 'vim move' move key modifier
-let g:gruvbox_italic=1                    " use italics in the gruvbox theme
-"let g:gruvbox_color_contrast= 'hard'      " dark contrast for gruvbox theme
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_shell = '/bin/bash'
-"let g:syntastic_c_include_dirs = ['/usr/include/dbus-1.0', '/usr/include/glib-2.0', '/usr/include/cairo', '/usr/include/pango-1.0']
-"let g:syntastic_java_javac_classpath = '/home/toqoz/code/java/assgn2a/src'
-"let g:lightline = {
-    "\ 'colorscheme': 'seoul256',
-    "\ 'active': {
-    "\   'left': [ [ 'filename' ],
-    "\             [ 'readonly', 'fugitive' ] ],
-    "\   'right': [ [ 'percent', 'lineinfo' ],
-    "\              [ 'fileencoding', 'filetype' ],
-    "\              [ 'fileformat', 'syntastic' ] ]
-    "\ },
-    "\ 'separator': { 'left': '▓▒░', 'right': '░▒▓' },
-    "\ 'subseparator': { 'left': '▒', 'right': '░' }
-    "\ }                                   " lightline scheme
+let g:gruvbox_italic=1
+let g:gruvbox_termcolors = 256
+let g:gruvbox_contrast_dark = 'hard'
 
-"let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+set hidden                                " make vims windowing usable
 
-" mappings
-" i dont like commenting these, seems to skrew up bindings.
-" 1. use space to open/close folds
-" 2. make hl = <esc>
-" 3. make . = control . (not fully sure: https://danielmiessler.com/study/vim/
-" 4. enable the sudo-save
+" --------- Racer --------
+let g:racer_cmd = "/home/toqoz/.cargo/bin/racer"    " racer directory
+let g:racer_experimental_completer = 1              " enable racer to show the complete function definition
+let g:racer_insert_paren = 1
+let g:LanguageClient_serverCommands = { 'rust': ['/home/toqoz/.cargo/bin/rustup', 'run', 'stable', 'rls'] }
+
+" ------ FZF ------
+" default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let g:fzf_layout = { 'left': '~30%' }     " default fzf layout - down / up / left / right
+
+" customize fzf colors to match color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+let g:fzf_buffers_jump = 1                " [buffers] jump to the existing window if possible
+
+" ------- Ale -------
+let g:ale_lint_on_text_changed = 'normal' " don't check while typing.
+let g:ale_fixers = { 'rust': ['rustfmt'] }
+let g:ale_set_balloons = 1                " show lint info on mouse hover.  doesn't work for me atm.
+
+" ------ Autopairs -------
+let g:AutoPairsMapCh = 0                  " don't map C-h for removing pairs (i want to use it for something else)
+                                          " maybe change the binding to something else, might be useful.
+
+
+" ------- Bindings -------
+" use space to open/close folds
 nnoremap <space> za
-nnoremap <Leader>; :Goyo<CR>
-nnoremap <Leader>q :Limelight!! 0.5<CR>
+" disable highlight with esc
 nnoremap <esc> :noh<return><esc>
-inoremap hl <esc>
-
+" don't know
+inoremap <C-@> <C-Space>
+" bindings for omnicomplete menu
+inoremap <C-l> <C-n>
+inoremap <C-h> <C-p>
+" make . = control . (not fully sure: https://danielmiessler.com/study/vim/
 vnoremap . :norm.<CR>
-" always accidently type W, so changed this to WWW.
-command WWW :execute ':silent w !sudo tee % > /dev/null' | :edit!
-map <C-n> :NERDTreeToggle<CR>
-nmap <C-m> :TagbarOpenAutoClose<CR>
+" enable the sudo-save
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
-" tab for completion.
+" ------ Bindings -> COC ------
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <leader>rn <Plug>(coc-rename)
+imap <C-Space> <Plug>(coc-snippets-expand)
+let g:coc_snippet_next = '<tab>'
+
+" ------ Bindings -> fzf ------
+nmap <leader><tab> :Files<CR>
+nmap <leader>1 :Files ~/code/<CR>
+
 
 " filetype
 filetype plugin indent on          " enable indent for filetypes, not entirely sure
 
-"autocmd VimEnter * DoShowMarks
-"autocmd FileType java set noexpandtab
+" i think these are Ale related.
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-split)
+au FileType rust nmap gx <Plug>(rust-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+
+
 
 " scheme / colors
 colorscheme gruvbox  " set the colorscheme

@@ -16,13 +16,15 @@ bspc config gapless_monocle     true
 #bspc config focus_by_distance   true
 bspc config focus_follows_pointer true
 
-bspc monitor '^1' -d 1 2
-bspc monitor '^2' -d 3 4 5 6 7
+bspc monitor '^1' -d 1 2 3 4
+bspc monitor '^2' -d 5 6 7
 
-bspc rule -a Termite state=floating
+bspc rule -a Alacritty state=floating
+bspc rule -a Allegro state=floating
+bspc rule -a sxiv state=floating
 bspc rule -a Steam desktop=^1
-bspc rule -a Pidgin desktop=^2 state=pseudo_tiled
-bspc rule -a Discord desktop=^2
+bspc rule -a Pidgin desktop=^5 state=pseudo_tiled
+bspc rule -a Discord desktop=^5
 bspc rule -a Nautilus state=floating
 bspc rule -a Gimp state=floating
 bspc rule -a \*:transparent_blank border=false
@@ -40,9 +42,11 @@ xsetroot -cursor_name left_ptr &
 xset +fp /usr/share/fonts/local &
 xset fp rehash &
 xset r rate 200 30 &
+xset m 0 0 &
 xrdb -merge ~/.Xresources &
 nitrogen --restore &
 nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1' &
+aw-server & aw-watcher-afk & aw-watcher-window &
 #termite --geometry 2539x350+7+7 --class=scratchpad -e ~/bin/scratch &
 #python /home/toqoz/code/python/yarn/yarn.py &
 #panel &
